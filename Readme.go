@@ -123,4 +123,76 @@ var taskitem =[]string{taskone,tasktwo}
 
 //this is array where size is  defined
 var taskitem =[2]string{taskone,tasktwo}
+
+
+------------------------------------
+Loops in Go:-
+
+1. Basic for loop
+
+2. for loop with condition
+
+3. for range loop
+
+example:- 
+package main
+
+import "fmt"
+
+func main() {
+var taskone = "2. Watch Nana's good boy "
+var tasktwo="1. Watch go crash course"
+var taskthree="3. Watch Naruto"
+//var maxItensInGroup=20
+
+//below line is slice example
+var taskitem =[]string{taskone,tasktwo,taskthree}
+
+	for _,task := range taskitem{
+		fmt.Println(task)
+	}
+}
+
+example with index:-
+
+package main
+
+import "fmt"
+
+func main() {
+var taskone = " Watch Nana's good boy "
+var tasktwo=" Watch go crash course"
+var taskthree=" Watch Naruto"
+//var maxItensInGroup=20
+
+//below line is slice example
+var taskitem =[]string{taskone,tasktwo,taskthree}
+
+	
+	for index,task := range taskitem{
+		fmt.Println(index,task)
+	}
+}
+//formated output for above
+
+package main
+
+import "fmt"
+
+func main() {
+var taskone = " Watch Nana's good boy "
+var tasktwo=" Watch go crash course"
+var taskthree=" Watch Naruto"
+//var maxItensInGroup=20
+
+//below line is slice example
+var taskitem =[]string{taskone,tasktwo,taskthree}
+	for index,task := range taskitem{
+		//fmt.Println(index + 1,".",task)
+		fmt.Printf("%d. %s\n",index +1,task)
+	}
+}
  
+
+
+
