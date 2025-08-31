@@ -351,5 +351,27 @@ var updatedTaskItems = append(taskItems,newTask)
 //WebApi code in Go
 
 
+package main
 
+import (
+	"fmt"
+	"net/http"
+)
+
+func main() {
+	// define route and handler
+	http.HandleFunc("/", helloUser)
+
+	// start web server (moved after route definition for best practice)
+	fmt.Println("Server starting at http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
+}
+
+// define handler function
+func helloUser(writer http.ResponseWriter, r *http.Request) {
+	greeting := "Hello User, Welcome to Task Manager"
+	fmt.Fprintln(writer, greeting)
+}
+
+//go in the browser type http://localhost:8080/
 
