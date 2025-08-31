@@ -194,7 +194,162 @@ var taskitem =[]string{taskone,tasktwo,taskthree}
 }
 
 --------fuctions-----
- 
+ package main
+
+import "fmt"
+
+var taskone = " Watch Nana's good boy "
+var tasktwo = " Watch go crash course"
+var taskthree = " Watch Naruto"
+
+// var maxItemsInGroup = 20
+
+// below line is slice example
+var taskItems = []string{taskone, tasktwo, taskthree}
+
+func main() {
+	fmt.Println("### Welcome to Task Manager ###")
+	//printTasks() // call the function so it actually prints tasks
+}
+
+func printTasks() {
+	fmt.Println("Printing tasks")
+	for index, task := range taskItems {
+		fmt.Printf("%d: %s\n", index+1, task)
+	}
+}
+
+--------variables scope & Global scope------
+package main
+
+import "fmt"
+
+var taskone = " Watch Nana's good boy "
+var tasktwo = " Watch go crash course"
+var taskthree = " Watch Naruto"
+
+// var maxItemsInGroup = 20
+
+// below line is slice example
+var taskItems = []string{taskone, tasktwo, taskthree}
+
+func main() {
+	fmt.Println("### Welcome to Task Manager ###")
+	printTasks() // call the function so it actually prints tasks
+}
+
+func printTasks() {
+	fmt.Println("Printing tasks")
+	for index, task := range taskItems {
+		fmt.Printf("%d: %s\n", index+1, task)
+	}
+}
+
+//Passing values of one functions to another functions, so we can acces the variables and array
+
+//ex-1 passing parameter
+package main
+
+import "fmt"
+
+
+
+func main() {
+	fmt.Println("### Welcome to Task Manager ###")
+	var taskone = " Watch Nana's good boy "
+var tasktwo = " Watch go crash course"
+var taskthree = " Watch Naruto"
+
+// var maxItemsInGroup = 20
+
+// below line is slice example
+var taskItems = []string{taskone, tasktwo, taskthree}
+	printTasks(taskItems) // call the function so it actually prints tasks
+}
+
+func printTasks(taskItems[]string) {
+	fmt.Println("Printing tasks")
+	for index, task := range taskItems {
+		fmt.Printf("%d: %s\n", index+1, task)
+	}
+}
+//working with listsitems , adding functions / calling functions inside the functions
+
+package main
+
+import "fmt"
+
+
+
+func main() {
+	fmt.Println("### Welcome to Task Manager ###")
+	var taskone = " Watch Nana's good boy "
+var tasktwo = " Watch go crash course"
+var taskthree = " Watch Naruto"
+
+// var maxItemsInGroup = 20
+
+// below line is slice example
+var taskItems = []string{taskone, tasktwo, taskthree}
+	printTasks(taskItems) // call the function so it actually prints tasks
+	fmt.Println()
+	addTask(taskItems," Let's Run")
+}
+
+func printTasks(taskItems[]string,) {
+	fmt.Println("Printing tasks")
+	for index, task := range taskItems {
+		fmt.Printf("%d: %s\n", index+1, task)
+	}
+}
+
+func addTask(taskItems[]string,newTask string){
+var updatedTaskItems = append(taskItems,newTask)
+ printTasks(updatedTaskItems)
+
+}
+
+//Return value from functions executions and stored in var/list
+
+package main
+
+import "fmt"
+
+
+
+func main() {
+	fmt.Println("### Welcome to Task Manager ###")
+	var taskone = " Watch Nana's good boy "
+var tasktwo = " Watch go crash course"
+var taskthree = " Watch Naruto"
+
+// var maxItemsInGroup = 20
+
+// below line is slice example
+var taskItems = []string{taskone, tasktwo, taskthree}
+	printTasks(taskItems) // call the function so it actually prints tasks
+	fmt.Println()
+	//saving in variables returned updated slice
+	taskItems = addTask(taskItems," Let's Run")
+	fmt.Println()
+	printTasks(taskItems) // call the function so it actually prints tasks
+}
+
+func printTasks(taskItems[]string,) {
+	fmt.Println("Printing tasks")
+	for index, task := range taskItems {
+		fmt.Printf("%d: %s\n", index+1, task)
+	}
+}
+
+//returns updated slice of tasks
+func addTask(taskItems[]string,newTask string) []string{ 
+var updatedTaskItems = append(taskItems,newTask)
+  return updatedTaskItems;
+
+}
+//WebApi code in Go
+
 
 
 
