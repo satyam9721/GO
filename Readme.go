@@ -375,3 +375,74 @@ func helloUser(writer http.ResponseWriter, r *http.Request) {
 
 //go in the browser type http://localhost:8080/
 
+//ex-2
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func main() {
+	// define route and handler
+	http.HandleFunc("/hello-go", helloUser)
+
+	// start web server (moved after route definition for best practice)
+	fmt.Println("Server starting at http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
+}
+
+// define handler function
+func helloUser(writer http.ResponseWriter, r *http.Request) {
+	greeting := "Hello User, Welcome to Task Manager"
+	fmt.Fprintln(writer, greeting)
+}
+
+//defining multiple routers and there output
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+
+var shortgo ="Watch crash course";
+var fullgolang= "Watch go lang full course"
+var reward="Reward yourself with a chocolate"
+
+var taskItems = []string{shortgo, fullgolang, reward}
+
+
+func main() {
+	// define route and handler
+	http.HandleFunc("/hello-go", helloUser)
+	http.HandleFunc("/show-tasks", showTasks)
+
+	// start web server (moved after route definition for best practice)
+	fmt.Println("Server starting at http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
+}
+
+func showTasks(writer http.ResponseWriter,r *http.Request){
+ for _,task:=range taskItems{
+fmt.Fprintln(writer,task)
+ }
+}
+
+// define handler function
+func helloUser(writer http.ResponseWriter, r *http.Request) {
+	greeting := "Hello User, Welcome to Task Manager"
+	fmt.Fprintln(writer, greeting)
+}
+
+o/p
+http://localhost:8080/show-tasks 
+
+Watch crash course
+Watch go lang full course
+Reward yourself with a chocolate
+
+http://localhost:8080/hello-go
+
+Hello User, Welcome to Task Manager
