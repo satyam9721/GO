@@ -192,6 +192,8 @@ var taskitem =[]string{taskone,tasktwo,taskthree}
 		fmt.Printf("%d. %s\n",index +1,task)
 	}
 }
+
+--------fuctions-----
  
 
 
